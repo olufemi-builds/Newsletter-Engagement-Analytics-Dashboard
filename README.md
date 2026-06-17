@@ -33,7 +33,7 @@ The dataset simulates newsletter activity data with the following fields:
 - region
 - unsubscribed
 
-Synthetic data can be generated using SQL (see below).
+Synthetic data can be generated using SQL scripts.
 
 ---
 
@@ -41,31 +41,71 @@ Synthetic data can be generated using SQL (see below).
 
 Star schema design:
 
-- Fact Table: newsletter_engagement
-- Dimension Tables:
+- Fact table: newsletter_engagement
+
+- Dimension tables:
   - dim_subscriber
   - dim_newsletter
   - dim_date
 
-Relationships:
-- subscriber_id → dim_subscriber
-- newsletter_name → dim_newsletter
-- send_date → dim_date
+### Relationships
+
+- subscriber_id → dim_subscriber  
+- newsletter_name → dim_newsletter  
+- send_date → dim_date  
 
 ---
 
 ## Key Metrics (DAX)
 
 ```DAX
-Total Opens = SUM(newsletter_engagement[opens])
+Total Opens =
+SUM(newsletter_engagement[opens])
 
-Total Clicks = SUM(newsletter_engagement[clicks])
+Total Clicks =
+SUM(newsletter_engagement[clicks])
 
 Open Rate =
-DIVIDE(SUM(newsletter_engagement[opens]), COUNTROWS(newsletter_engagement))
+DIVIDE(
+    SUM(newsletter_engagement[opens]),
+    COUNTROWS(newsletter_engagement)
+)
 
 Click Rate =
-DIVIDE(SUM(newsletter_engagement[clicks]), SUM(newsletter_engagement[opens]))
+DIVIDE(
+    SUM(newsletter_engagement[clicks]),
+    SUM(newsletter_engagement[opens])
+)
 
 Unsubscribe Rate =
-DIVIDE(SUM(newsletter_engagement[unsubscribed]), COUNTROWS(newsletter_engagement))
+DIVIDE(
+    SUM(newsletter_engagement[unsubscribed]),
+    COUNTROWS(newsletter_engagement)
+)
+
+## Use Cases
+
+- Track newsletter performance
+- Compare A/B headline results
+- Analyze user engagement trends
+- Identify drop-off points in the funnel
+- Segment performance by device and region
+
+---
+
+## Engagement Funnel
+
+- Emails sent  
+- Opens  
+- Clicks  
+- Unsubscribes  
+
+---
+
+## Key Questions
+
+- Which newsletter performs best?
+- Which headline variant drives more clicks?
+- How does engagement differ by device?
+- Which region has the highest engagement?
+- Where do users drop off most?
