@@ -1,14 +1,25 @@
 # Newsletter Engagement Analytics Dashboard
 
-This project analyzes newsletter engagement behavior to understand how readers interact with editorial content across different newsletters, audience segments, and headline variants.
+This project analyzes newsletter engagement behavior to understand how readers interact with editorial content across newsletters, audience segments, and headline variants.
 
-It is designed to simulate real-world analytics used in media platforms to improve engagement, retention, and content strategy.
+It simulates analytics used in media platforms to improve engagement, retention, and content strategy.
+
+---
+
+## Problem
+
+Newsletter teams often face:
+
+- Low click-through rates  
+- Declining retention after signup  
+- Unclear headline performance  
+- Weak segmentation of audience behavior  
 
 ---
 
 ## Objective
 
-The goal is to answer practical questions such as:
+This project focuses on answering:
 
 - Which newsletters drive the highest engagement?
 - How do readers behave across regions and devices?
@@ -18,35 +29,58 @@ The goal is to answer practical questions such as:
 
 ---
 
+## Approach
+
+A structured analytics model was built using:
+
+- Power BI for dashboards and visualization  
+- SQL for data generation and transformation  
+- Star schema data modeling  
+- A/B testing for headline comparison  
+- Cohort analysis for retention tracking  
+
+### Analysis focus areas
+
+- Newsletter performance comparison  
+- Regional engagement patterns  
+- Device-based behavior (mobile vs desktop)  
+- Headline variant testing  
+- Subscriber retention trends  
+
+---
+
 ## Dataset
 
-The dataset simulates newsletter activity data with the following fields:
+The dataset simulates newsletter activity.
 
-- subscriber_id
-- signup_date
-- newsletter_name
-- send_date
-- headline_variant (A/B test)
-- opens
-- clicks
-- device_type
-- region
-- unsubscribed
+### Fields
 
-Synthetic data can be generated using SQL scripts.
+- subscriber_id  
+- signup_date  
+- newsletter_name  
+- send_date  
+- headline_variant (A/B test)  
+- opens  
+- clicks  
+- device_type  
+- region  
+- unsubscribed  
+
+Synthetic data is generated using SQL scripts included in the project.
 
 ---
 
 ## Data Model
 
-Star schema design:
+Star schema design used for analytics.
 
-- Fact table: newsletter_engagement
+### Fact table
+- newsletter_engagement  
 
-- Dimension tables:
-  - dim_subscriber
-  - dim_newsletter
-  - dim_date
+### Dimension tables
+- dim_subscriber  
+- dim_newsletter  
+- dim_date  
 
 ### Relationships
 
@@ -82,30 +116,3 @@ DIVIDE(
     SUM(newsletter_engagement[unsubscribed]),
     COUNTROWS(newsletter_engagement)
 )
-
-## Use Cases
-
-- Track newsletter performance
-- Compare A/B headline results
-- Analyze user engagement trends
-- Identify drop-off points in the funnel
-- Segment performance by device and region
-
----
-
-## Engagement Funnel
-
-- Emails sent  
-- Opens  
-- Clicks  
-- Unsubscribes  
-
----
-
-## Key Questions
-
-- Which newsletter performs best?
-- Which headline variant drives more clicks?
-- How does engagement differ by device?
-- Which region has the highest engagement?
-- Where do users drop off most?
