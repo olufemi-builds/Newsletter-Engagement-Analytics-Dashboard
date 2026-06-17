@@ -111,6 +111,54 @@ DIVIDE(
     SUM(newsletter_engagement[opens])
 )
 
+---
+
+## Key Findings
+
+- One newsletter category consistently drives higher click-through rates  
+- Mobile users show higher open rates but lower click depth  
+- Headline variant A performs better than variant B  
+- Engagement drops after the second week for new subscribers  
+
+---
+
+## Engagement Funnel
+
+- Emails sent  
+- Opens  
+- Clicks  
+- Unsubscribes  
+
+---
+
+## Use Cases
+
+- Track newsletter performance  
+- Compare A/B headline results  
+- Analyze user engagement trends  
+- Identify drop-off points in the funnel  
+- Segment performance by device and region  
+
+---
+
+## Business Impact
+
+This project helps media teams:
+
+- Increase engagement per send  
+- Improve subscriber retention  
+- Optimize editorial planning  
+- Identify high-performing content themes early  
+
+---
+
+## Key Questions Answered
+
+- Which newsletter performs best?  
+- Which headline variant drives more clicks?  
+- How does engagement differ by device?  
+- Which region has the highest engagement?  
+- Where do users drop off most?  
 Unsubscribe Rate =
 DIVIDE(
     SUM(newsletter_engagement[unsubscribed]),
