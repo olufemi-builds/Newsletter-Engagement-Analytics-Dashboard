@@ -110,6 +110,12 @@ DIVIDE(
     SUM(newsletter_engagement[clicks]),
     SUM(newsletter_engagement[opens])
 )
+Unsubscribe Rate =
+DIVIDE(
+    SUM(newsletter_engagement[unsubscribed]),
+    COUNTROWS(newsletter_engagement)
+)
+
 
 ---
 
@@ -159,8 +165,3 @@ This project helps media teams:
 - How does engagement differ by device?  
 - Which region has the highest engagement?  
 - Where do users drop off most?  
-Unsubscribe Rate =
-DIVIDE(
-    SUM(newsletter_engagement[unsubscribed]),
-    COUNTROWS(newsletter_engagement)
-)
